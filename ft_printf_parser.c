@@ -50,7 +50,7 @@ int	ft_printf_general_parser(const char *str, va_list *lparam)
 		{
 			str++;
 			flags = ft_init_flags();
-			str += ft_fill_struct(str, &flags);
+			str += ft_fill_struct(str, &flags, lparam);
 			count += ft_printf_specifier_parser(flags, lparam);
 		}
 		else

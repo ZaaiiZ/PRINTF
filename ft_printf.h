@@ -38,7 +38,7 @@ int		is_flags(char c);
 int		is_digit(char c);
 int		is_specifier(char c);
 
-int		ft_fill_struct(const char *str, t_flags *flags);
+int		ft_fill_struct(const char *str, t_flags *flags, va_list *lparam);
 
 int		ft_printf_char_parser(t_flags flags, va_list *lparam);
 

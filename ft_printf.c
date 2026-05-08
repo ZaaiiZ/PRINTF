@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
+#include <stdio.h>
 
 t_flags	ft_init_flags(void)
 {
@@ -39,6 +40,12 @@ int	ft_printf(const char *str, ...)
 
 int	main(void)
 {
-	ft_printf("Hello %s, you are %d yo. and %x lol\n", "Adrien", 20, 255);
+	//ft_printf("Hello %s, you are %d yo. and %x lol\n", "Adrien", 20, 255);
+	printf("Hi : %+0*d\n", 10, 20);
+	ft_printf("Hi : %+0*d\n", 10, 20);
+	printf("Hi : %+.*d\n", 10, 20);
+	ft_printf("Hi : %+.*d\n", 10, 20);
+	printf("Hi : %+*.*d\n", 20, 10, 30);
+	ft_printf("Hi : %+*.*d\n", 20, 10, 30);
 	return (0);
 }

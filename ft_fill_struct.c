@@ -34,7 +34,7 @@ static int	ft_fill_flags(const char *str, t_flags *flags)
 	return (count);
 }
 
-static int	ft_fill_width(const char *str, t_flags *flags)
+static int	ft_fill_width(const char *str, t_flags *flags, va_list *lparam)
 {
 	int	count;
 
@@ -49,25 +49,44 @@ static int	ft_fill_width(const char *str, t_flags *flags)
 			count++;
 		}
 	}
+	else if (*str == '*')
+	{
+		flags->width = va_arg(*lparam, int);
+		if (flags->width < 0)
+		{
+			flags->minus = 1;
+			flags->width = -flags->width;
+		}
+		count++;
+	}
 	return (count);
 }
 
-static int	ft_fill_precision(const char *str, t_flags *flags)
+static int	ft_fill_precision(const char *str, t_flags *flags, va_list *lparam)
 {
 	int	count;
 
 	count = 0;
 	if (*str == '.')
 	{
-		
 		flags->precision = 0;
 		str++;
 		count++;
-		while (is_digit(*str))
+		if (*str == '*')
 		{
-			flags->precision = flags->precision * 10 + (*str - '0');
-			str++;
+			flags->precision = va_arg(*lparam, int);
+			if (flags->precision < 0)
+				flags->precision = -1;
 			count++;
+		}
+		else
+		{
+			while (is_digit(*str))
+			{
+				flags->precision = flags->precision * 10 + (*str - '0');
+				str++;
+				count++;
+			}
 		}
 	}
 	return (count);
@@ -83,7 +102,7 @@ static int	ft_fill_specifier(const char *str, t_flags *flags)
 	return (0);
 }
 
-int	ft_fill_struct(const char *str, t_flags *flags)
+int	ft_fill_struct(const char *str, t_flags *flags, va_list *lparam)
 {
 	int	count;
 	int	n;
@@ -94,11 +113,11 @@ int	ft_fill_struct(const char *str, t_flags *flags)
 	str += n;
 	count += n;
 
-	n = ft_fill_width(str, flags);
+	n = ft_fill_width(str, flags, lparam);
 	str += n;
 	count += n;
 
-	n = ft_fill_precision(str, flags);
+	n = ft_fill_precision(str, flags, lparam);
 	str += n;
 	count += n;
 
