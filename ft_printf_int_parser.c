@@ -82,13 +82,13 @@ static int	ft_write_flags(t_flags flags)
 	return (0);
 }
 
-int	ft_printf_int_parser(t_flags flags, va_list lparam)
+int	ft_printf_int_parser(t_flags flags, va_list *lparam)
 {
 	int	count;
 	int	arg;
 
 	count = 0;
-	arg = va_arg(lparam, int);
+	arg = va_arg(*lparam, int);
 	if (flags.minus)
 	{
 		count += ft_write_flags(flags);

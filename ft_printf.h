@@ -40,18 +40,18 @@ int		is_specifier(char c);
 
 int		ft_fill_struct(const char *str, t_flags *flags);
 
-int		ft_printf_char_parser(t_flags flags, va_list lparam);
+int		ft_printf_char_parser(t_flags flags, va_list *lparam);
 
-int		ft_printf_string_parser(t_flags flags, va_list lparam);
+int		ft_printf_string_parser(t_flags flags, va_list *lparam);
 
-int		ft_printf_uint_parser(t_flags flags, va_list lparam);
+int		ft_printf_uint_parser(t_flags flags, va_list *lparam);
 
-int		ft_printf_hexa_parser(t_flags flags, va_list lparam);
+int		ft_printf_hexa_parser(t_flags flags, va_list *lparam);
 
-int		ft_printf_ptr_parser(va_list lparam);
+int		ft_printf_ptr_parser(va_list *lparam);
 
-int		ft_printf_int_parser(t_flags flags, va_list lparam);
+int		ft_printf_int_parser(t_flags flags, va_list *lparam);
 
-int		ft_printf_general_parser(const char *str, va_list lparam);
+int		ft_printf_general_parser(const char *str, va_list *lparam);
 
 #endif

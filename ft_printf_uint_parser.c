@@ -57,13 +57,13 @@ static int	ft_printf_precision_putuint(unsigned int arg, t_flags flags)
 	return (count);
 }
 
-int	ft_printf_uint_parser(t_flags flags, va_list lparam)
+int	ft_printf_uint_parser(t_flags flags, va_list *lparam)
 {
 	int				count;
 	unsigned int	arg;
 
 	count = 0;
-	arg = va_arg(lparam, unsigned int);
+	arg = va_arg(*lparam, unsigned int);
 	if (flags.minus)
 	{
 		count += ft_printf_precision_putuint(arg, flags);

@@ -72,13 +72,13 @@ static int	ft_write_flags(t_flags flags)
 	return (0);
 }
 
-int	ft_printf_hexa_parser(t_flags flags, va_list lparam)
+int	ft_printf_hexa_parser(t_flags flags, va_list *lparam)
 {
 	int				count;
 	unsigned int	arg;
 
 	count = 0;
-	arg = va_arg(lparam, unsigned int);
+	arg = va_arg(*lparam, unsigned int);
 	if (flags.minus)
 	{
 		count += ft_write_flags(flags);

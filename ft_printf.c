@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
-#include <stdio.h>
 
 t_flags	ft_init_flags(void)
 {
@@ -33,14 +32,13 @@ int	ft_printf(const char *str, ...)
 	va_list lparam;
 
 	va_start(lparam, str);
-	count = ft_printf_general_parser(str, lparam);
+	count = ft_printf_general_parser(str, &lparam);
 	va_end(lparam);
 	return (count);
 }
 
 int	main(void)
 {
-	ft_printf("Hello %10.s all\n", NULL);
-	printf("Hello %10.s all\n", (char*)NULL);
+	ft_printf("Hello %s, you are %d yo. and %x lol\n", "Adrien", 20, 255);
 	return (0);
 }

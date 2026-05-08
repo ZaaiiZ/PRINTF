@@ -11,13 +11,13 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-int	ft_printf_char_parser(t_flags flags, va_list lparam)
+int	ft_printf_char_parser(t_flags flags, va_list *lparam)
 {
 	int		count;
 	char	arg;
 
 	count = 0;
-	arg = va_arg(lparam, int);
+	arg = va_arg(*lparam, int);
 	if (flags.minus)
 	{
 		count += ft_printf_putchar(arg);

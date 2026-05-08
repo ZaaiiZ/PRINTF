@@ -53,13 +53,13 @@ static int	ft_printf_width_putstr(char *arg, t_flags flags)
 	return (count);
 }
 
-int	ft_printf_string_parser(t_flags flags, va_list lparam)
+int	ft_printf_string_parser(t_flags flags, va_list *lparam)
 {
 	int		count;
 	char	*arg;
 
 	count = 0;
-	arg = va_arg(lparam, char*);
+	arg = va_arg(*lparam, char*);
 	if (arg == (char*)NULL)
 		arg = "(null)\0";
 	if (flags.minus)

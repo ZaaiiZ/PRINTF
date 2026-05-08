@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-static int	ft_printf_specifier_parser(t_flags flags, va_list lparam)
+static int	ft_printf_specifier_parser(t_flags flags, va_list *lparam)
 {
 	int	count;
 
@@ -38,7 +38,7 @@ static int	ft_printf_specifier_parser(t_flags flags, va_list lparam)
 	return (count);
 }
 
-int	ft_printf_general_parser(const char *str, va_list lparam)
+int	ft_printf_general_parser(const char *str, va_list *lparam)
 {
 	int		count;
 	t_flags	flags;
