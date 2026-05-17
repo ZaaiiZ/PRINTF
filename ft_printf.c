@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrien <kikiripou@gmail.com>               +#+  +:+       +#+        */
+/*   By: adrienallaria <adrienallaria@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 09:44:13 by adrien            #+#    #+#             */
-/*   Updated: 2026/05/04 09:44:13 by adrien            ###   ########.fr      */
+/*   Updated: 2026/05/17 12:02:49 by adrienallar      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
-#include <stdio.h>
 
 t_flags	ft_init_flags(void)
 {
@@ -38,14 +38,12 @@ int	ft_printf(const char *str, ...)
 	return (count);
 }
 
-int	main(void)
+int	ft_vprintf(const char *str, va_list *lparam)
 {
-	//ft_printf("Hello %s, you are %d yo. and %x lol\n", "Adrien", 20, 255);
-	printf("Hi : %+0*d\n", 10, 20);
-	ft_printf("Hi : %+0*d\n", 10, 20);
-	printf("Hi : %+.*d\n", 10, 20);
-	ft_printf("Hi : %+.*d\n", 10, 20);
-	printf("Hi : %+*.*d\n", 20, 10, 30);
-	ft_printf("Hi : %+*.*d\n", 20, 10, 30);
-	return (0);
+	int	count;
+
+	count = ft_printf_general_parser(str, lparam);
+	return (count);
 }
+
+

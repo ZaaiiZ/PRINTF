@@ -13,7 +13,8 @@ SRCS =	ft_printf.c \
 		ft_printf_hexa_parser.c \
 		ft_printf_uint_parser.c \
 		ft_printf_ptr_parser.c \
-		ft_printf_int_parser.c
+		ft_printf_int_parser.c \
+		ft_printf_percent_parser.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

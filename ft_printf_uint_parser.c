@@ -15,11 +15,13 @@ static int	ft_len_uint(unsigned int arg)
 {
 	int	len;
 
+	if (arg == 0)
+		return (1);
 	len = 0;
 	while (arg > 0)
 	{
 		arg /= 10;
-		len ++;
+		len++;
 	}
 	return (len);
 }
@@ -30,10 +32,12 @@ static int	ft_printf_width_putuint(unsigned int arg, t_flags flags)
 	int	i;
 
 	count = 0;
-	if (flags.precision < ft_len_uint(arg))
-		i = flags.width - ft_len_uint(arg);
-	else
+	if (flags.precision == 0 && arg == 0)
+		i = flags.width;
+	else if (flags.precision > ft_len_uint(arg))
 		i = flags.width - flags.precision;
+	else
+		i = flags.width - ft_len_uint(arg);
 	while (i-- > 0)
 	{
 		if (flags.precision == -1 && flags.zero && !flags.minus)
@@ -50,6 +54,8 @@ static int	ft_printf_precision_putuint(unsigned int arg, t_flags flags)
 	int	i;
 
 	count = 0;
+	if (flags.precision == 0 && arg == 0)
+		return (0);
 	i = flags.precision - ft_len_uint(arg);
 	while (i-- > 0)
 		count += ft_printf_putchar('0');

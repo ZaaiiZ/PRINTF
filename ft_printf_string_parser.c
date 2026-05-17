@@ -38,19 +38,17 @@ static int	ft_printf_precision_putstr(char *arg, t_flags flags)
 
 static int	ft_printf_width_putstr(char *arg, t_flags flags)
 {
-	int	count;
 	int	i;
 
-	count = 0;
 	if (flags.precision == -1)
 		i = flags.width - ft_len_str(arg);
 	else if (flags.precision < ft_len_str(arg))
 		i = flags.width - flags.precision;
 	else
 		i = flags.width - ft_len_str(arg);
-	while (i-- > 0)
-		count += ft_printf_putchar(' ');
-	return (count);
+	if (flags.zero && !flags.minus)
+		return (ft_putnchar('0', i));
+	return (ft_putnchar(' ', i));
 }
 
 int	ft_printf_string_parser(t_flags flags, va_list *lparam)

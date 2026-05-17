@@ -15,11 +15,13 @@ static int	ft_len_hexa(unsigned int arg)
 {
 	int	len;
 
+	if (arg == 0)
+		return (1);
 	len = 0;
 	while (arg > 0)
 	{
 		arg /= 16;
-		len ++;
+		len++;
 	}
 	return (len);
 }
@@ -28,12 +30,16 @@ static int	ft_printf_width_puthexa(unsigned int arg, t_flags flags)
 {
 	int	count;
 	int	i;
+	int	prefix;
 
 	count = 0;
-	if (flags.precision < ft_len_hexa(arg))
-		i = flags.width - ft_len_hexa(arg) - 2 * flags.hash;
+	prefix = 2 * (flags.hash && arg != 0);
+	if (flags.precision == 0 && arg == 0)
+		i = flags.width - prefix;
+	else if (flags.precision > ft_len_hexa(arg))
+		i = flags.width - flags.precision - prefix;
 	else
-		i = flags.width - flags.precision - 2 * flags.hash;
+		i = flags.width - ft_len_hexa(arg) - prefix;
 	while (i-- > 0)
 	{
 		if (flags.precision == -1 && flags.zero && !flags.minus)
@@ -50,19 +56,21 @@ static int	ft_printf_precision_puthexa(unsigned int arg, t_flags flags)
 	int	i;
 
 	count = 0;
+	if (flags.precision == 0 && arg == 0)
+		return (0);
 	i = flags.precision - ft_len_hexa(arg);
 	while (i-- > 0)
 		count += ft_printf_putchar('0');
 	if (flags.specifier == 'X')
 		count += ft_printf_puthexa(arg, "0123456789ABCDEF");
-	else	
+	else
 		count += ft_printf_puthexa(arg, "0123456789abcdef");
 	return (count);
 }
 
-static int	ft_write_flags(t_flags flags)
+static int	ft_write_flags(t_flags flags, unsigned int arg)
 {
-	if (flags.hash)
+	if (flags.hash && arg != 0)
 	{
 		if (flags.specifier == 'x')
 			return (ft_printf_putstr("0x"));
@@ -81,17 +89,17 @@ int	ft_printf_hexa_parser(t_flags flags, va_list *lparam)
 	arg = va_arg(*lparam, unsigned int);
 	if (flags.minus)
 	{
-		count += ft_write_flags(flags);
+		count += ft_write_flags(flags, arg);
 		count += ft_printf_precision_puthexa(arg, flags);
 		count += ft_printf_width_puthexa(arg, flags);
 	}
 	else
 	{
 		if (flags.zero && flags.precision == -1)
-			count += ft_write_flags(flags);
+			count += ft_write_flags(flags, arg);
 		count += ft_printf_width_puthexa(arg, flags);
 		if (flags.precision >= 0 || !flags.zero)
-			count += ft_write_flags(flags);
+			count += ft_write_flags(flags, arg);
 		count += ft_printf_precision_puthexa(arg, flags);
 	}
 	return (count);

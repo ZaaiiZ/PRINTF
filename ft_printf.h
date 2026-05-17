@@ -37,6 +37,7 @@ int		ft_printf(const char *str, ...);
 int		is_flags(char c);
 int		is_digit(char c);
 int		is_specifier(char c);
+int		ft_putnchar(char c, int n);
 
 int		ft_fill_struct(const char *str, t_flags *flags, va_list *lparam);
 
@@ -48,9 +49,11 @@ int		ft_printf_uint_parser(t_flags flags, va_list *lparam);
 
 int		ft_printf_hexa_parser(t_flags flags, va_list *lparam);
 
-int		ft_printf_ptr_parser(va_list *lparam);
+int		ft_printf_ptr_parser(t_flags flags, va_list *lparam);
 
 int		ft_printf_int_parser(t_flags flags, va_list *lparam);
+
+int		ft_printf_percent_parser(t_flags flags);
 
 int		ft_printf_general_parser(const char *str, va_list *lparam);
 

@@ -13,29 +13,25 @@
 
 static int	ft_printf_specifier_parser(t_flags flags, va_list *lparam)
 {
-	int	count;
-
-	count = 0;
 	if (flags.specifier == 's')
-		count += ft_printf_string_parser(flags, lparam);
+		return (ft_printf_string_parser(flags, lparam));
 	else if (flags.specifier == 'd' || flags.specifier == 'i')
-		count += ft_printf_int_parser(flags, lparam);
+		return (ft_printf_int_parser(flags, lparam));
 	else if (flags.specifier == 'u')
-		count += ft_printf_uint_parser(flags, lparam);
+		return (ft_printf_uint_parser(flags, lparam));
 	else if (flags.specifier == 'x' || flags.specifier == 'X')
-		count += ft_printf_hexa_parser(flags, lparam);
+		return (ft_printf_hexa_parser(flags, lparam));
 	else if (flags.specifier == 'c')
-		count += ft_printf_char_parser(flags, lparam);
+		return (ft_printf_char_parser(flags, lparam));
 	else if (flags.specifier == 'p')
-		count += ft_printf_ptr_parser(lparam);
+		return (ft_printf_ptr_parser(flags, lparam));
 	else if (flags.specifier == '%')
-		count += ft_printf_putchar('%');
+		return (ft_printf_percent_parser(flags));
 	else
 	{
-		count += ft_printf_putchar('%');
-		count += ft_printf_putchar(flags.specifier);
+		ft_printf_putchar('%');
+		return (ft_printf_putchar(flags.specifier) + 1);
 	}
-	return (count);
 }
 
 int	ft_printf_general_parser(const char *str, va_list *lparam)
