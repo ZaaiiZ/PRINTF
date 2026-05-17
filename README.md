@@ -1,6 +1,6 @@
 # ft_printf
 
-A custom implementation of the C standard library function `printf`, developed as part of the 42 School curriculum.
+A custom implementation of the C standard library function `printf`, developed as part of the 42 School cursus.
 
 ## Overview
 
