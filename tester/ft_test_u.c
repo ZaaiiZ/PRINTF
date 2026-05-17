@@ -1,0 +1,214 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_test_u.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: victor <victor.horel@learner.42.tech>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/05/14 18:21:23 by victor            #+#    #+#             */
+/*   Updated: 2026/05/16 08:42:30 by victor           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_tester.h"
+
+void	ft_test_u(void)
+{
+	int				count;
+	unsigned int	unbr;
+	
+	count = 0;
+	unbr = 42;
+
+	count += ft_tester('u', "%u", unbr);
+	count += ft_tester('u', "%u", 0u);
+	count += ft_tester('u', "%u", 1u);
+	count += ft_tester('u', "%u", 42u);
+	count += ft_tester('u', "%u", UINT_MAX);
+	count += ft_tester('u', "%1u", unbr);
+	count += ft_tester('u', "%2u", unbr);
+	count += ft_tester('u', "%3u", unbr);
+	count += ft_tester('u', "%5u", unbr);
+	count += ft_tester('u', "%10u", unbr);
+	count += ft_tester('u', "%20u", unbr);
+	count += ft_tester('u', "%1u", 0u);
+	count += ft_tester('u', "%5u", 0u);
+	count += ft_tester('u', "%10u", 0u);
+	count += ft_tester('u', "%20u", UINT_MAX);
+	count += ft_tester('u', "%-1u", unbr);
+	count += ft_tester('u', "%-2u", unbr);
+	count += ft_tester('u', "%-5u", unbr);
+	count += ft_tester('u', "%-10u", unbr);
+	count += ft_tester('u', "%-20u", unbr);
+	count += ft_tester('u', "%-5u", 0u);
+	count += ft_tester('u', "%-10u", 0u);
+	count += ft_tester('u', "%-20u", UINT_MAX);
+	count += ft_tester('u', "%01u", unbr);
+	count += ft_tester('u', "%02u", unbr);
+	count += ft_tester('u', "%03u", unbr);
+	count += ft_tester('u', "%05u", unbr);
+	count += ft_tester('u', "%010u", unbr);
+	count += ft_tester('u', "%020u", unbr);
+	count += ft_tester('u', "%05u", 0u);
+	count += ft_tester('u', "%010u", 0u);
+	count += ft_tester('u', "%020u", UINT_MAX);
+	count += ft_tester('u', "%-01u", unbr);
+	count += ft_tester('u', "%-02u", unbr);
+	count += ft_tester('u', "%-05u", unbr);
+	count += ft_tester('u', "%-010u", unbr);
+	count += ft_tester('u', "%-020u", unbr);
+	count += ft_tester('u', "%-05u", 0u);
+	count += ft_tester('u', "%-010u", 0u);
+	count += ft_tester('u', "%-020u", UINT_MAX);
+	count += ft_tester('u', "%--1u", unbr);
+	count += ft_tester('u', "%--5u", unbr);
+	count += ft_tester('u', "%---5u", unbr);
+	count += ft_tester('u', "%----10u", unbr);
+	count += ft_tester('u', "%0001u", unbr);
+	count += ft_tester('u', "%0005u", unbr);
+	count += ft_tester('u', "%00010u", unbr);
+	count += ft_tester('u', "%0005u", 0u);
+	count += ft_tester('u', "%--005u", unbr);
+	count += ft_tester('u', "%-0-05u", unbr);
+	count += ft_tester('u', "%.0u", 0u);
+	count += ft_tester('u', "%.0u", unbr);
+	count += ft_tester('u', "%.1u", 0u);
+	count += ft_tester('u', "%.1u", unbr);
+	count += ft_tester('u', "%.2u", unbr);
+	count += ft_tester('u', "%.3u", unbr);
+	count += ft_tester('u', "%.5u", unbr);
+	count += ft_tester('u', "%.10u", unbr);
+	count += ft_tester('u', "%.20u", unbr);
+	count += ft_tester('u', "%.20u", UINT_MAX);
+	count += ft_tester('u', "%1.0u", 0u);
+	count += ft_tester('u', "%1.0u", unbr);
+	count += ft_tester('u', "%5.0u", 0u);
+	count += ft_tester('u', "%5.0u", unbr);
+	count += ft_tester('u', "%5.1u", unbr);
+	count += ft_tester('u', "%5.3u", unbr);
+	count += ft_tester('u', "%5.5u", unbr);
+	count += ft_tester('u', "%5.10u", unbr);
+	count += ft_tester('u', "%8.5u", unbr);
+	count += ft_tester('u', "%10.5u", unbr);
+	count += ft_tester('u', "%20.10u", unbr);
+	count += ft_tester('u', "%25.20u", UINT_MAX);
+	count += ft_tester('u', "%-1.0u", 0u);
+	count += ft_tester('u', "%-1.0u", unbr);
+	count += ft_tester('u', "%-5.0u", 0u);
+	count += ft_tester('u', "%-5.0u", unbr);
+	count += ft_tester('u', "%-5.3u", unbr);
+	count += ft_tester('u', "%-8.5u", unbr);
+	count += ft_tester('u', "%-10.5u", unbr);
+	count += ft_tester('u', "%-20.10u", unbr);
+	count += ft_tester('u', "%-25.20u", UINT_MAX);
+	count += ft_tester('u', "%01.0u", 0u);
+	count += ft_tester('u', "%05.0u", 0u);
+	count += ft_tester('u', "%010.0u", 0u);
+	count += ft_tester('u', "%05.0u", unbr);
+	count += ft_tester('u', "%05.3u", unbr);
+	count += ft_tester('u', "%08.5u", unbr);
+	count += ft_tester('u', "%010.5u", unbr);
+	count += ft_tester('u', "%020.10u", UINT_MAX);
+	count += ft_tester('u', "%*u", 0, unbr);
+	count += ft_tester('u', "%*u", 1, unbr);
+	count += ft_tester('u', "%*u", 2, unbr);
+	count += ft_tester('u', "%*u", 5, unbr);
+	count += ft_tester('u', "%*u", 10, unbr);
+	count += ft_tester('u', "%*u", 20, unbr);
+	count += ft_tester('u', "%*u", -1, unbr);
+	count += ft_tester('u', "%*u", -2, unbr);
+	count += ft_tester('u', "%*u", -5, unbr);
+	count += ft_tester('u', "%*u", -10, unbr);
+	count += ft_tester('u', "%*u", -20, unbr);
+	count += ft_tester('u', "%*u", 5, 0u);
+	count += ft_tester('u', "%*u", -5, 0u);
+	count += ft_tester('u', "%*u", 20, UINT_MAX);
+	count += ft_tester('u', "%*u", -20, UINT_MAX);
+	count += ft_tester('u', "%.*u", 0, 0u);
+	count += ft_tester('u', "%.*u", 0, unbr);
+	count += ft_tester('u', "%.*u", 1, 0u);
+	count += ft_tester('u', "%.*u", 1, unbr);
+	count += ft_tester('u', "%.*u", 3, unbr);
+	count += ft_tester('u', "%.*u", 5, unbr);
+	count += ft_tester('u', "%.*u", 10, unbr);
+	count += ft_tester('u', "%.*u", 20, unbr);
+	count += ft_tester('u', "%.*u", -1, unbr);
+	count += ft_tester('u', "%.*u", -5, unbr);
+	count += ft_tester('u', "%.*u", -10, unbr);
+	count += ft_tester('u', "%*.*u", 0, 0, 0u);
+	count += ft_tester('u', "%*.*u", 0, 5, unbr);
+	count += ft_tester('u', "%*.*u", 5, 0, 0u);
+	count += ft_tester('u', "%*.*u", 5, 0, unbr);
+	count += ft_tester('u', "%*.*u", 8, 5, unbr);
+	count += ft_tester('u', "%*.*u", 10, 5, unbr);
+	count += ft_tester('u', "%*.*u", 20, 10, UINT_MAX);
+	count += ft_tester('u', "%*.*u", -8, 5, unbr);
+	count += ft_tester('u', "%*.*u", -10, 5, unbr);
+	count += ft_tester('u', "%*.*u", -20, 10, UINT_MAX);
+	count += ft_tester('u', "%*.*u", 8, -5, unbr);
+	count += ft_tester('u', "%*.*u", -8, -5, unbr);
+	count += ft_tester('u', "%0*u", 5, unbr);
+	count += ft_tester('u', "%0*u", -5, unbr);
+	count += ft_tester('u', "%0*u", 5, 0u);
+	count += ft_tester('u', "%0*u", -5, 0u);
+	count += ft_tester('u', "%-*u", 5, unbr);
+	count += ft_tester('u', "%-*u", -5, unbr);
+	count += ft_tester('u', "%-*u", 5, 0u);
+	count += ft_tester('u', "%-*u", -5, 0u);
+	count += ft_tester('u', "%0.*u", 5, unbr);
+	count += ft_tester('u', "%0.*u", -5, unbr);
+	count += ft_tester('u', "%-.*u", 5, unbr);
+	count += ft_tester('u', "%-.*u", -5, unbr);
+	count += ft_tester('u', "%0*.*u", 8, 5, unbr);
+	count += ft_tester('u', "%0*.*u", -8, 5, unbr);
+	count += ft_tester('u', "%0*.*u", 8, -5, unbr);
+	count += ft_tester('u', "%0*.*u", -8, -5, unbr);
+	count += ft_tester('u', "%-*.*u", 8, 5, unbr);
+	count += ft_tester('u', "%-*.*u", -8, 5, unbr);
+	count += ft_tester('u', "%+u", unbr);
+	count += ft_tester('u', "%+u", 0u);
+	count += ft_tester('u', "%+5u", unbr);
+	count += ft_tester('u', "%+05u", unbr);
+	count += ft_tester('u', "%+.5u", unbr);
+	count += ft_tester('u', "%+8.5u", unbr);
+	count += ft_tester('u', "% u", unbr);
+	count += ft_tester('u', "% u", 0u);
+	count += ft_tester('u', "% 5u", unbr);
+	count += ft_tester('u', "% 05u", unbr);
+	count += ft_tester('u', "% .5u", unbr);
+	count += ft_tester('u', "% 8.5u", unbr);
+	count += ft_tester('u', "%#u", unbr);
+	count += ft_tester('u', "%#u", 0u);
+	count += ft_tester('u', "%#5u", unbr);
+	count += ft_tester('u', "%#05u", unbr);
+	count += ft_tester('u', "%#.5u", unbr);
+	count += ft_tester('u', "%#8.5u", unbr);
+	count += ft_tester('u', "abc%udef", unbr);
+	count += ft_tester('u', "abc%5udef", unbr);
+	count += ft_tester('u', "abc%-5udef", unbr);
+	count += ft_tester('u', "abc%05udef", unbr);
+	count += ft_tester('u', "abc%.5udef", unbr);
+	count += ft_tester('u', "abc%8.5udef", unbr);
+	count += ft_tester('u', "abc%udef", 0u);
+	count += ft_tester('u', "abc%5.0udef", 0u);
+	count += ft_tester('u', "%u%u", 42u, 0u);
+	count += ft_tester('u', "%u %u", 42u, UINT_MAX);
+	count += ft_tester('u', "%5u%5u", 42u, 0u);
+	count += ft_tester('u', "%-5u%-5u", 42u, 0u);
+	count += ft_tester('u', "%05u%05u", 42u, 0u);
+	count += ft_tester('u', "%.5u%.5u", 42u, 0u);
+	count += ft_tester('u', "%8.5u%8.5u", 42u, UINT_MAX);
+	count += ft_tester('u', "%*u%*u", 5, 42u, 5, 0u);
+	count += ft_tester('u', "%*u%*u", -5, 42u, -5, 0u);
+	count += ft_tester('u', "%*.*u%*.*u", 8, 5, 42u, 8, 5, UINT_MAX);
+	count += ft_tester('u', "%*.*u%*.*u", -8, 5, 42u, -8, 5, UINT_MAX);
+
+	ft_putendl_fd("%u", 1);
+	write(1, "SUCCED TESTS : ", 15);
+	ft_putnbr_fd(count, 1);
+	write(1, "\n", 1);
+	write(1, "FAILED TESTS : ", 15);
+	ft_putnbr_fd(182 - count, 1);
+	write(1, "\n\n", 2);
+	return ;
+}
