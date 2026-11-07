@@ -59,6 +59,23 @@ The implementation is split into three layers:
 | `#` | `%#x` | Adds `0x` / `0X` prefix for hexadecimal conversions |
 | `+` | `%+d` | Forces a `+` sign for positive numbers |
 | ` ` | `% d` | Adds a space before positive numbers (ignored if `+` is present) |
+| `*` | `%*d` | Takes the width and/or precision as an argument instead of hardcoding it |
+
+### Dynamic width and precision with `*`
+
+The `*` flag allows you to pass the width or precision as an argument at runtime instead of writing it directly in the format string. You can use it for width, precision, or both:
+
+```c
+ft_printf("%*d", 10, 42);        // "        42"  — width 10 from argument
+ft_printf("%.*d", 5, 42);        // "00042"       — precision 5 from argument
+ft_printf("%*.*d", 10, 5, 42);   // "     00042"  — both from arguments
+```
+
+A negative width argument is interpreted as the `-` flag (left-align):
+
+```c
+ft_printf("%*d", -10, 42);       // "42        "  — same as %-10d
+```
 
 ### Flag usage examples
 
