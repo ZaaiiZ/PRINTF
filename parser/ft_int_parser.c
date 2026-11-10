@@ -6,7 +6,7 @@
 /*   By: adallari <adrien.allaria@learner.42.tec    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 18:24:47 by adallari          #+#    #+#             */
-/*   Updated: 2026/11/07 16:35:58 by adallari         ###   ########.fr       */
+/*   Updated: 2026/11/10 12:18:00 by adallari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_write_sign(int arg, t_flags flags);
 
 int	ft_intlen(long n)
 {
-	int		c;
+	int	c;
 
 	c = 0;
 	if (!n)

@@ -6,7 +6,7 @@
 /*   By: adallari <adrien.allaria@learner.42.tec    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 18:48:47 by adallari          #+#    #+#             */
-/*   Updated: 2026/11/07 16:38:20 by adallari         ###   ########.fr       */
+/*   Updated: 2026/11/08 22:23:56 by adallari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ int	ft_general_parser(va_list *params, t_flags flags)
 	else
 	{
 		c += ft_putchar('%');
-		c += 1 + ft_putchar(flags.spec);
+		c += ft_putchar(flags.spec);
 	}
 	return (c);
 }

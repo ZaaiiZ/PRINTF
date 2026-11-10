@@ -6,7 +6,7 @@
 /*   By: adallari <adrien.allaria@learner.42.tec    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 00:23:38 by adallari          #+#    #+#             */
-/*   Updated: 2026/11/07 16:15:56 by adallari         ###   ########.fr       */
+/*   Updated: 2026/11/07 17:02:13 by adallari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,11 @@ int	ft_fill_precision(const char *s, t_flags *flags, va_list *params)
 	int	c;
 
 	c = 0;
-	if (*s++ == '.')
-	{
-		flags->precision = 0;
-		c = 1;
-	}
+	if (*s != '.')
+		return (0);
+	s++;
+	flags->precision = 0;
+	c = 1;
 	while (ft_isdigit(*s))
 	{
 		flags->precision = flags->precision * 10 + (*s - '0');

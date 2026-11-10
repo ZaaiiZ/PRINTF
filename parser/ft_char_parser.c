@@ -6,28 +6,21 @@
 /*   By: adallari <adrien.allaria@learner.42.tec    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 18:17:15 by adallari          #+#    #+#             */
-/*   Updated: 2026/11/07 15:37:31 by adallari         ###   ########.fr       */
+/*   Updated: 2026/11/07 17:05:28 by adallari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
 int			ft_char_parser(va_list *params, t_flags flags);
-static int	ft_char_sort_flags(char arg, t_flags flags);
-static int	ft_char_width(char arg, t_flags flags);
 
-static int	ft_char_sort_flags(char arg, t_flags flags)
+int	ft_char_parser(va_list *params, t_flags flags)
 {
-	if (flags.width > 1)
-		return (ft_char_width(arg, flags));
-	return (ft_putchar(arg));
-}
-
-static int	ft_char_width(char arg, t_flags flags)
-{
-	int	c;
+	int		c;
+	char	arg;
 
 	c = 0;
+	arg = va_arg(*params, int);
 	if (flags.minus)
 	{
 		c += ft_putchar(arg);
@@ -41,16 +34,5 @@ static int	ft_char_width(char arg, t_flags flags)
 			c += ft_putnchar(' ', flags.width - 1);
 		c += ft_putchar(arg);
 	}
-	return (c);
-}
-
-int	ft_char_parser(va_list *params, t_flags flags)
-{
-	int		c;
-	char	arg;
-
-	c = 0;
-	arg = va_arg(*params, int);
-	c += ft_char_sort_flags(arg, flags);
 	return (c);
 }

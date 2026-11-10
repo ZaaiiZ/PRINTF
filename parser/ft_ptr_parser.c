@@ -6,7 +6,7 @@
 /*   By: adallari <adrien.allaria@learner.42.tec    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 18:36:33 by adallari          #+#    #+#             */
-/*   Updated: 2026/11/07 15:19:37 by adallari         ###   ########.fr       */
+/*   Updated: 2026/11/07 17:03:18 by adallari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_ptr_parser(va_list *params, t_flags flags)
 	{
 		c += ft_putstr("0x");
 		c += ft_parse_width(arg, flags, 3);
-		if (!(!flags.precision && !arg))
+		if (flags.precision || arg)
 			c += ft_puthexa(arg, 0);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: adallari <adrien.allaria@learner.42.tec    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 15:17:14 by adallari          #+#    #+#             */
-/*   Updated: 2026/11/07 16:36:03 by adallari         ###   ########.fr       */
+/*   Updated: 2026/11/08 22:23:25 by adallari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include <stddef.h>
-# include <stdlib.h>
 # include <unistd.h>
 
 //STRUCTURE
@@ -70,7 +68,6 @@ int	ft_fill_spec(const char *s, t_flags *flags);
 
 int	ft_isflags(char c);
 int	ft_isdigit(char c);
-int	ft_isspec(char c);
 int	ft_strlen(const char *s);
 int	ft_intlen(long n);
 int	ft_hexalen(unsigned long arg);

@@ -21,8 +21,4 @@ fclean: clean
 
 re: fclean all
 
-lib:
-	cc main.c -L. -lftprintf -o test
-	clear && ./test
-
 .PHONY: all clean fclean re

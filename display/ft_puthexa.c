@@ -6,7 +6,7 @@
 /*   By: adallari <adrien.allaria@learner.42.tec    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 15:49:13 by adallari          #+#    #+#             */
-/*   Updated: 2026/11/07 15:08:03 by adallari         ###   ########.fr       */
+/*   Updated: 2026/11/07 17:02:43 by adallari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,11 @@ static int	ft_recurs_hexa(unsigned long n, char *b)
 
 int	ft_puthexa(unsigned long n, int caps)
 {
-	int		c;
 	char	*b;
 
-	c = 0;
 	if (!caps)
 		b = "0123456789abcdef";
 	else
 		b = "0123456789ABCDEF";
-	c += ft_recurs_hexa(n, b);
-	return (c);
+	return (ft_recurs_hexa(n, b));
 }
